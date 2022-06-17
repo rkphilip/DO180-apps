@@ -1,0 +1,63 @@
+Cloning "https://github.com/rkphilip/DO180-apps" ...
+	Commit:	f7cd8963ef353d9173c3a21dcccf402f3616840b (Initial commit, including all apps previously in course)
+	Author:	Jordi Sola <someth2say@gmail.com>
+	Date:	Fri Oct 4 13:04:03 2019 +0200
+time="2022-06-17T12:16:45Z" level=info msg="Not using native diff for overlay, this may cause degraded performance for building images: kernel has CONFIG_OVERLAY_FS_REDIRECT_DIR enabled"
+I0617 12:16:45.388439       1 defaults.go:102] Defaulting to storage driver "overlay" with options [mountopt=metacopy=on].
+Caching blobs under "/var/cache/blobs".
+Trying to pull image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:c649c4d2735cb8e03463b456aee1fa0610d5e80dc00c5efcdab08db83ff6d746...
+Getting image source signatures
+Copying blob sha256:e0e9ac142996019bde22d55cf51053069e0135f1aae55c9e3bdc77d591c3369b
+Copying blob sha256:df920f1b41b8f18f9459e1c35abce96ed6a077e4cc77e4583a7af599be965b1b
+Copying blob sha256:fd3cd11aea08456c116a42669bde7cf67dc6738c227f0dd9b26d4b677e2a98f1
+Copying blob sha256:a2745c55c3c1fba0208863c387ce5d947a92be3c48577e8436c85b4712546f40
+Copying blob sha256:cafe1f99c39ec8cd1f8e696c7031d8c5756311c1ee87f20c65a816889714841c
+Copying config sha256:fd2077affedb833b7b7c930dc7e3b52d9bf1c2add9ce51df1292e0cf18b207b6
+Writing manifest to image destination
+Storing signatures
+Generating dockerfile with builder image image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:c649c4d2735cb8e03463b456aee1fa0610d5e80dc00c5efcdab08db83ff6d746
+Adding transient rw bind mount for /run/secrets/rhsm
+STEP 1/9: FROM image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:c649c4d2735cb8e03463b456aee1fa0610d5e80dc00c5efcdab08db83ff6d746
+STEP 2/9: LABEL "io.openshift.build.source-context-dir"="php-helloworld"       "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:c649c4d2735cb8e03463b456aee1fa0610d5e80dc00c5efcdab08db83ff6d746"       "io.openshift.build.commit.author"="Jordi Sola <someth2say@gmail.com>"       "io.openshift.build.commit.date"="Fri Oct 4 13:04:03 2019 +0200"       "io.openshift.build.commit.id"="f7cd8963ef353d9173c3a21dcccf402f3616840b"       "io.openshift.build.commit.ref"="s2i"       "io.openshift.build.commit.message"="Initial commit, including all apps previously in course"       "io.openshift.build.source-location"="https://github.com/rkphilip/DO180-apps"
+STEP 3/9: ENV OPENSHIFT_BUILD_NAME="php-helloworld-1"     OPENSHIFT_BUILD_NAMESPACE="zzmvzn-s2i"     OPENSHIFT_BUILD_SOURCE="https://github.com/rkphilip/DO180-apps"     OPENSHIFT_BUILD_REFERENCE="s2i"     OPENSHIFT_BUILD_COMMIT="f7cd8963ef353d9173c3a21dcccf402f3616840b"
+STEP 4/9: USER root
+STEP 5/9: COPY upload/src /tmp/src
+STEP 6/9: RUN chown -R 1001:0 /tmp/src
+STEP 7/9: USER 1001
+STEP 8/9: RUN /usr/libexec/s2i/assemble
+---> Installing application source...
+=> sourcing 20-copy-config.sh ...
+---> 12:17:02     Processing additional arbitrary httpd configuration provided by s2i ...
+=> sourcing 00-documentroot.conf ...
+=> sourcing 50-mpm-tuning.conf ...
+=> sourcing 40-ssl-certs.sh ...
+STEP 9/9: CMD /usr/libexec/s2i/run
+COMMIT temp.builder.openshift.io/zzmvzn-s2i/php-helloworld-1:bfa1dd5c
+time="2022-06-17T12:17:02Z" level=warning msg="Adding metacopy option, configured globally"
+Getting image source signatures
+Copying blob sha256:0b054459c00a34b2b17c5b3c630f25270acb778be3e5c9369185a22d3cf9b42e
+Copying blob sha256:73bf0b1db372c204a79bf1beadf847b1f9873bcdf2c48e4339d8ad292fab6efb
+Copying blob sha256:84b6bd9f4d0c3e2bc727c4fb62701c07b71c5a33e9803c8f5c71d36a8515ade4
+Copying blob sha256:d2ddbf27faca20065be426c2a7140f04899afbd2b811c8cd1bc3fe78b82d1c10
+Copying blob sha256:1df73125d4f4eadf6563bec47f190a8303a5245536abd01848fd9cba5189b60c
+Copying blob sha256:12f1603b22bd3e21c7ec67d0ebe458dc5782a4d8efd852259533c6794b394537
+Copying config sha256:dad06c2114b335728cb46cbbdd290e0c7515b9fcf02e9fb7dba2f3025df07b79
+Writing manifest to image destination
+Storing signatures
+--> dad06c2114b
+Successfully tagged temp.builder.openshift.io/zzmvzn-s2i/php-helloworld-1:bfa1dd5c
+dad06c2114b335728cb46cbbdd290e0c7515b9fcf02e9fb7dba2f3025df07b79
+
+Pushing image image-registry.openshift-image-registry.svc:5000/zzmvzn-s2i/php-helloworld:latest ...
+Getting image source signatures
+Copying blob sha256:12f1603b22bd3e21c7ec67d0ebe458dc5782a4d8efd852259533c6794b394537
+Copying blob sha256:df920f1b41b8f18f9459e1c35abce96ed6a077e4cc77e4583a7af599be965b1b
+Copying blob sha256:cafe1f99c39ec8cd1f8e696c7031d8c5756311c1ee87f20c65a816889714841c
+Copying blob sha256:fd3cd11aea08456c116a42669bde7cf67dc6738c227f0dd9b26d4b677e2a98f1
+Copying blob sha256:a2745c55c3c1fba0208863c387ce5d947a92be3c48577e8436c85b4712546f40
+Copying blob sha256:e0e9ac142996019bde22d55cf51053069e0135f1aae55c9e3bdc77d591c3369b
+Copying config sha256:dad06c2114b335728cb46cbbdd290e0c7515b9fcf02e9fb7dba2f3025df07b79
+Writing manifest to image destination
+Storing signatures
+Successfully pushed image-registry.openshift-image-registry.svc:5000/zzmvzn-s2i/php-helloworld@sha256:ecb00992df5ff0b006d01145b5011485409775aa63cddd90bf1a55d3d104d71b
+Push successful
